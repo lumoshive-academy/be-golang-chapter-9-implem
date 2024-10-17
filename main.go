@@ -30,24 +30,26 @@ func main() {
 	account_2 := model.NewAccount("lumo", "lumo_2@email.com", "62088430430434")
 	saldo_acccount_2 := model.NewSaldo(account_2)
 
+	// show all account
 	allSaldo := model.NewSaldoSlice(saldo_acccount_1, saldo_acccount_2)
 
 	fmt.Printf("Account berhasil di tambahkan: %+v\n", allSaldo)
 
-	// debit saldo 
+	// debit saldo account 1
 	if err := allSaldo[0].DebitSaldo(1000); err != nil {
 		fmt.Println("Error :", err)
 		return
 	}
 	fmt.Printf("Saldo akun 1 berhasil di tambahkan: %+v\n", allSaldo)
 
-	//  credit saldo
+	//  credit saldo account 1
 	if err := allSaldo[0].CreditSaldo(500); err != nil {
 		fmt.Println("Error :", err)
 		return
 	}
 	fmt.Printf("Saldo akun 1 berhasil di kurangkan: %+v\n", allSaldo)
 
+	// debit saldo account 2
 	if err := allSaldo[1].DebitSaldo(1000); err != nil {
 		fmt.Println("Error :", err)
 		return
