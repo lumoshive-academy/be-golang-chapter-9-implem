@@ -31,28 +31,28 @@ func main() {
 	saldo_acccount_2 := model.NewSaldo(account_2)
 
 	// show all account
-	allSaldo := model.NewSaldoSlice(saldo_acccount_1, saldo_acccount_2)
+	allAccountSaldo := model.NewSaldoSlice(saldo_acccount_1, saldo_acccount_2)
 
-	fmt.Printf("Account berhasil di tambahkan: %+v\n", allSaldo)
+	fmt.Printf("Account berhasil di tambahkan: %+v\n", allAccountSaldo)
 
 	// debit saldo account 1
-	if err := allSaldo[0].DebitSaldo(1000); err != nil {
+	if err := allAccountSaldo[0].DebitSaldo(1000); err != nil {
 		fmt.Println("Error :", err)
 		return
 	}
-	fmt.Printf("Saldo akun 1 berhasil di tambahkan: %+v\n", allSaldo)
+	fmt.Printf("Saldo akun 1 berhasil di tambahkan: %+v\n", allAccountSaldo)
 
 	//  credit saldo account 1
-	if err := allSaldo[0].CreditSaldo(500); err != nil {
+	if err := allAccountSaldo[0].CreditSaldo(500); err != nil {
 		fmt.Println("Error :", err)
 		return
 	}
-	fmt.Printf("Saldo akun 1 berhasil di kurangkan: %+v\n", allSaldo)
+	fmt.Printf("Saldo akun 1 berhasil di kurangkan: %+v\n", allAccountSaldo)
 
 	// debit saldo account 2
-	if err := allSaldo[1].DebitSaldo(1000); err != nil {
+	if err := allAccountSaldo[1].DebitSaldo(1000); err != nil {
 		fmt.Println("Error :", err)
 		return
 	}
-	fmt.Printf("Saldo akun 2 berhasil di tambahkan: %+v\n", allSaldo)
+	fmt.Printf("Saldo akun 2 berhasil di tambahkan: %+v\n", allAccountSaldo)
 }
